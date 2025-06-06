@@ -1,28 +1,32 @@
+* ================================
+   1) FLEXBOX LAYOUT (do not change)
+   ================================ */
+
 /* Make body a flex container in column direction */
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* full viewport height */
+  min-height: 100vh;
   margin: 0;
 }
 
-/* main contains article and aside in a row */
+/* Make main a flex container in row direction */
 main {
   display: flex;
   flex-direction: row;
-  flex: auto; /* grow to fill available space */
-  overflow: hidden; /* prevent overflow outside main */
+  flex: auto;           /* main expands to fill available space */
+  overflow: hidden;     /* prevent main’s overflow from spilling out */
 }
 
-/* article takes 2/3 of width */
+/* Article takes up 2/3 of available width */
 article {
   flex: 2;
-  overflow-y: auto; /* scroll vertically if content too tall */
+  overflow-y: auto;     /* vertical scrollbar if content overflows */
   padding: 10px;
   background-color: #f0f0f0;
 }
 
-/* aside takes 1/3 of width */
+/* Aside takes up 1/3 of available width */
 aside {
   flex: 1;
   overflow-y: auto;
@@ -30,20 +34,87 @@ aside {
   background-color: #d0d0d0;
 }
 
-/* Optional styling for header and footer */
+/* Basic header and footer styling */
 header, footer {
+  background-color: #ddd;
   padding: 10px;
-  background-color: #ccc;
   text-align: center;
 }
 
-/* Responsive design: works_on_smartphone class triggers this */
+/* ================================
+   2) RESPONSIVE LAYOUT (already provided)
+   ================================ */
+
+/* When body has class="works_on_smartphone", stack article & aside vertically */
 body.works_on_smartphone main {
-  flex-direction: column; /* stack article and aside vertically on small screens */
+  flex-direction: column;
 }
 
 body.works_on_smartphone article,
 body.works_on_smartphone aside {
-  flex: auto; /* both take full width */
-  height: 200px; /* fixed height to demonstrate scrolling */
+  flex: auto;      /* each takes full width */
+  height: 200px;   /* fixed height so scrolling is demonstrable */
+}
+
+/* ================================
+   3) EXTRA NON-POSITIONING STYLES
+   ================================ */
+
+/* Logo styling (in header’s first <li>) */
+.logo {
+  font-size: 2.5rem;    /* makes the Unicode star larger */
+  color: #ff6600;       /* orange color */
+  padding-right: 10px;
+}
+
+/* Header navigation list styles */
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;          /* horizontal menu */
+  align-items: center;
+}
+
+header nav ul li {
+  margin-right: 15px;
+}
+
+header nav ul li a {
+  color: #004080;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+header nav ul li a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+/* Article typography and container styling */
+article {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 8px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Aside typography */
+aside {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 8px;
+  color: #222;
+  line-height: 1.4;
+}
+
+/* Footer text styling */
+footer p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Optional: subtle background gradient for body */
+body {
+  background: linear-gradient(to bottom, #fafafa, #eaeaea);
 }
