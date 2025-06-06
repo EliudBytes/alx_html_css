@@ -1,0 +1,38 @@
+/* Apply Flexbox to body */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+}
+
+/* Apply Flexbox to main */
+main {
+  display: flex;
+  flex-direction: row;
+  flex: auto; /* Allow main to grow */
+}
+
+/* Article gets 2/3 of width */
+article {
+  flex: 2;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+/* Aside gets 1/3 of width */
+aside {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #e9e9e9;
+  padding: 10px;
+}
+
+/* Optional: style header and footer */
+header, footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
