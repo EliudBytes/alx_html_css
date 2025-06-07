@@ -1,0 +1,1 @@
+This project contains basic HTML structure files for the ALX HTML Basics project.
