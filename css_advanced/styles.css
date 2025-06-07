@@ -1,0 +1,638 @@
+/*
+ * Holberton Smiling School - Stylesheet
+ *
+ * This file contains all the CSS rules for the project,
+ * implemented based on the provided Figma design.
+ *
+ * It includes global styles, section-specific layouts using Flexbox and Grid,
+ * and responsive adjustments via media queries.
+ *
+ * All styling is done here, and no external CSS libraries are used,
+ * except for Google Fonts for Source Sans Pro, which can be self-hosted if strictly required.
+ */
+
+/* 1. Global Styles and Basic Reset */
+:root {
+    /* Colors from Figma */
+    --primary-purple: #FF6565; /* Used for buttons, highlighted text, etc. */
+    --text-color-dark: #071629; /* Dark text */
+    --text-color-light: #FFFFFF; /* Light text on dark backgrounds */
+    --gray-bg: #E1E1E1; /* Light gray background */
+    --dark-bg: #071629; /* Dark background for some sections/footer */
+    --section-bg-gray-lighter: #F3F3F3; /* Background for FAQs and Header */
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    overflow-x: hidden; /* Prevent horizontal scrollbar from layout shifts */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.7; /* Gentle hover effect */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background-color: var(--primary-purple);
+    color: var(--text-color-light);
+    font-size: 14px;
+    font-weight: 600; /* Semi-bold */
+    line-height: 26px; /* Line height as per Figma */
+    text-align: center;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 26px; /* Rounded corners */
+    transition: opacity 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.7; /* Gentle hover effect */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below images */
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+    margin-bottom: 0; /* Control margins with padding/gap on parent */
+    color: var(--text-color-dark);
+}
+
+.purple-text {
+    color: var(--primary-purple);
+}
+
+/* 2. Header and Navigation */
+.header {
+    background-color: var(--section-bg-gray-lighter);
+    padding: 20px; /* Padding for header content */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1000px; /* Max width for navbar content */
+    display: flex;
+    flex-direction: column; /* Stack logo and links on mobile */
+    align-items: center;
+    gap: 20px; /* Space between logo and nav links */
+}
+
+.navbar .logo {
+    width: 150px; /* Adjust logo size as per Figma */
+    height: auto;
+    margin-top: 20px; /* Space from top */
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column; /* Stack nav items on mobile */
+    align-items: center;
+    gap: 15px; /* Space between nav links */
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    color: var(--text-color-dark);
+}
+
+.nav-links a {
+    text-transform: uppercase;
+}
+
+/* 3. Hero Section */
+.hero-section {
+    background-image: url('./images/header_bg.jpg'); /* Assuming a background image */
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color-light);
+    padding: 120px 20px 80px; /* Top, horizontal, bottom padding */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-bottom: 60px; /* Space before pros section */
+}
+
+.hero-content h1 {
+    font-size: 60px; /* As per Figma */
+    font-weight: 700;
+    line-height: 75px;
+    color: var(--text-color-light);
+    margin-bottom: 10px;
+}
+
+.hero-slogans {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.hero-slogans span {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.hero-section .btn-primary {
+    padding: 12px 28px;
+    font-size: 14px;
+}
+
+/* Learn from the Pros Section within Hero */
+.pros-section {
+    width: 100%;
+    max-width: 960px;
+    margin-top: 80px;
+}
+
+.pros-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 40px;
+    color: var(--text-color-light);
+    margin-bottom: 60px;
+}
+
+.pros-grid {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    gap: 40px; /* Space between pro cards */
+}
+
+.pro-card {
+    text-align: center;
+}
+
+.pro-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px;
+}
+
+.pro-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23px;
+    color: var(--text-color-light);
+    margin-bottom: 5px;
+}
+
+.pro-card p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--text-color-light);
+    margin: 0;
+}
+
+/* 4. Testimonial Section */
+.testimonial-section {
+    background-color: var(--primary-purple); /* As per Figma */
+    color: var(--text-color-light);
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-container {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.testimonial-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents image from shrinking */
+}
+
+.testimonial-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text on mobile */
+}
+
+.testimonial-text-content blockquote {
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 34px;
+    margin: 0 0 20px;
+    max-width: 700px;
+}
+
+.testimonial-author-name {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 5px;
+}
+
+.testimonial-author-title {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0;
+}
+
+/* 5. Most Popular Tutorials Section */
+.tutorials-section {
+    background-color: var(--text-color-light); /* White background */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.tutorials-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 40px;
+    margin-bottom: 60px;
+    color: var(--text-color-dark);
+}
+
+.tutorials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); /* Responsive grid with min width */
+    gap: 30px; /* Space between cards */
+    max-width: 1000px; /* Limit content width */
+    margin: 0 auto;
+}
+
+.tutorial-card {
+    text-align: left;
+    background-color: var(--text-color-light);
+    border-radius: 0; /* No explicit border-radius in Figma for cards */
+    overflow: hidden;
+}
+
+.thumbnail-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (based on typical video thumbnails) */
+    height: 0;
+    overflow: hidden;
+    background-color: #000; /* Placeholder if image loads slowly */
+}
+
+.tutorial-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; /* Size as per Figma */
+    height: 60px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.play-button:hover {
+    opacity: 0.8;
+}
+
+.tutorial-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    padding: 15px 15px 5px;
+    color: var(--text-color-dark);
+}
+
+.tutorial-description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #4C4C4C; /* Specific text color for description */
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+.tutorial-author-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+    margin-bottom: 10px;
+}
+
+.tutorial-author-info img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tutorial-author-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    color: var(--primary-purple);
+    margin: 0;
+}
+
+.tutorial-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 15px;
+}
+
+.star-rating {
+    width: 90px; /* Size of the combined rating.png image */
+    height: auto;
+}
+
+.tutorial-duration {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    color: var(--primary-purple);
+    margin: 0;
+}
+
+
+/* 6. Free Membership Section */
+.membership-section {
+    background-color: var(--dark-bg);
+    color: var(--text-color-light);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.membership-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 40px;
+    margin-bottom: 60px;
+    color: var(--text-color-light);
+}
+
+.membership-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto 60px; /* Space before button */
+}
+
+.benefit-card {
+    text-align: center;
+}
+
+.benefit-card img {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+}
+
+.benefit-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23px;
+    color: var(--text-color-light);
+    margin-bottom: 5px;
+}
+
+.benefit-card p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+}
+
+.membership-section .btn-primary {
+    font-size: 14px;
+}
+
+/* 7. FAQ Section */
+.faq-section {
+    background-color: var(--section-bg-gray-lighter);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 40px;
+    margin-bottom: 60px;
+    color: var(--text-color-dark);
+}
+
+.faq-columns {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 40px;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.faq-item h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #4C4C4C;
+    margin: 0;
+}
+
+/* 8. Footer */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--text-color-light);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.footer .logo {
+    width: 150px; /* Same logo size as header */
+    height: auto;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons img {
+    width: 30px; /* Size for social media icons */
+    height: 30px;
+}
+
+.copyright {
+    margin-top: 30px; /* Space from logo/icons */
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #FFFFFF; /* Figma color, slightly different from default light text */
+    opacity: 0.35; /* As per Figma */
+}
+
+/* 9. Responsive Design (Media Queries) */
+
+/* Tablet Devices (e.g., 768px and up) */
+@media (min-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Navbar items in a row */
+        justify-content: space-between;
+    }
+
+    .navbar .logo {
+        margin-top: 0; /* Reset top margin */
+    }
+
+    .nav-links {
+        flex-direction: row; /* Nav links in a row */
+        gap: 30px; /* More space for nav links */
+    }
+
+    .pros-grid {
+        flex-direction: row; /* Pros cards in a row */
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: center;
+        gap: 60px 30px; /* Vertical and horizontal gap */
+    }
+
+    .pro-card {
+        flex-basis: calc(50% - 30px); /* Two cards per row with gap */
+        max-width: 250px; /* Max width for individual card */
+    }
+
+    .testimonial-container {
+        flex-direction: row; /* Testimonial image and text side-by-side */
+        text-align: left;
+        gap: 80px; /* More space between image and text */
+    }
+
+    .testimonial-text-content {
+        align-items: flex-start; /* Align text to the left */
+        flex: 1; /* Allow text content to take remaining space */
+    }
+
+    .tutorials-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 40px;
+    }
+
+    .membership-benefits-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+
+    .faq-columns {
+        flex-direction: row; /* FAQ columns side-by-side */
+        gap: 60px;
+    }
+
+    .faq-column {
+        flex: 1; /* Each column takes equal space */
+    }
+
+    .footer-container {
+        flex-direction: row; /* Footer items side-by-side */
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .copyright {
+        margin-top: 0;
+    }
+}
+
+/* Desktop Devices (e.g., 1024px and up) */
+@media (min-width: 1024px) {
+    .navbar {
+        padding: 0; /* Remove horizontal padding if nav spans full max-width */
+    }
+
+    .hero-content h1 {
+        font-size: 120px; /* Larger font for desktop hero */
+        line-height: 150px;
+    }
+
+    .pros-grid {
+        gap: 60px; /* Even more space on desktop */
+    }
+
+    .pro-card {
+        flex-basis: calc(25% - 45px); /* Four cards per row with gap */
+    }
+
+    .tutorials-grid {
+        grid-template-columns: repeat(4, 1fr); /* Four columns */
+    }
+
+    .membership-benefits-grid {
+        grid-template-columns: repeat(4, 1fr); /* Four columns */
+    }
+}
