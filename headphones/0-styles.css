@@ -1,0 +1,100 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    background-color: #1d1d1d;
+  }
+  
+  /* Container for centering content */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 160px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-links li a:hover,
+  .nav-links li a:active {
+    color: #FF6565;
+  }
+  
+  /* Hero section */
+  .main-header {
+    background: url("images/headphones_hero_1.jpg") center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero {
+    text-align: center;
+    padding-top: 50px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    padding: 12px 30px;
+    background-color: #FF6565;
+    color: white;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  
+  .btn:hover,
+  .btn:active {
+    opacity: 0.9;
+  }
+  
+  /* Responsive for mobile */
+  @media screen and (max-width: 480px) {
+    .nav-links {
+      display: none; /* You’ll later replace this with hamburger */
+    }
+  
+    .hero h1 {
+      font-size: 1.6rem;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+    }
+  }
